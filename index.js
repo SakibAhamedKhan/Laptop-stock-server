@@ -59,6 +59,13 @@ async function run () {
 			const result = await inventoryItemCollections.deleteOne(query);
 			res.send(result);
 		})
+
+		// Add a item in invetory
+		app.post('/addItem', async(req, res) => {
+			const doc = req.body;
+			const result = await inventoryItemCollections.insertOne(doc);
+			res.send(result);
+		})
 	}
 	finally{
 
