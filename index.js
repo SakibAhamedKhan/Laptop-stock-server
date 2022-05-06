@@ -27,6 +27,7 @@ async function run () {
 			const result = await cursor.toArray();
 			res.send(result);
 		})
+
 		// Get the Specific Item By Id
 		app.get('/inventoryItem/:inventoryId', async(req, res) => {
 			const inventoryId = req.params.inventoryId;
@@ -34,6 +35,7 @@ async function run () {
 			const result = await inventoryItemCollections.findOne(query);
 			res.send(result);
 		})
+
 		// Update quantity for Item
 		app.put('/updateQuantity/:inventoryId', async(req, res) => {
 			const inventoryId = req.params.inventoryId;
@@ -47,6 +49,14 @@ async function run () {
 				},
 			};
 			const result = await inventoryItemCollections.updateOne(filter, updateDoc, options);
+			res.send(result);
+		})
+
+		// Delete a item by id
+		app.delete('/deleteInventoryItem/:inventoryId', async(req, res) => {
+			const inventoryId = req.params.inventoryId;
+			const query = {_id: ObjectId(inventoryId)};
+			const result = await inventoryItemCollections.deleteOne(query);
 			res.send(result);
 		})
 	}
