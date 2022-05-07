@@ -66,6 +66,15 @@ async function run () {
 			const result = await inventoryItemCollections.insertOne(doc);
 			res.send(result);
 		})
+
+		// My item get
+		app.get('/myItem/:email', async(req, res) => {
+			const email = req.params.email;
+			const query = {email: email};
+			const cursor = inventoryItemCollections.find(query);
+			const result = await cursor.toArray();
+			res.send(result);
+		})
 	}
 	finally{
 
