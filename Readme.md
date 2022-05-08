@@ -1,6 +1,8 @@
 # Laptop Stock
 
-Live Link[Laptop stock](https://github.com/facebook/create-react-app).
+## Live Link[Laptop stock](https://laptop-stock-d7521.web.app/).
+
+## [https://laptop-stock-d7521.web.app/](https://laptop-stock-d7521.web.app/)
 
 ## My Application pages
 * Home
