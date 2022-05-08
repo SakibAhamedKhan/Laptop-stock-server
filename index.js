@@ -75,6 +75,13 @@ async function run () {
 			const result = await cursor.toArray();
 			res.send(result);
 		})
+		// total out of stock
+		app.get('/inventoryItemOutOfStock', async (req, res) => {
+			const query = {quantity:'0'};
+			const cursor = inventoryItemCollections.find(query);
+			const result = await cursor.toArray();
+			res.send(result);
+		})
 	}
 	finally{
 
